@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fancy Weather App</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <nav class="navbar mb-5">
+
+        <button class="btn btn-warning btn-refresh">Refresh</button>
+
+        <div class="btn-group">
+          <button class="btn btn-outline-primary text-white btn-celsius">C</button>
+          <button class="btn btn-outline-primary text-white btn-farenheit">F</button>
+        </div>
+
+      <div class="btn-group">
+        <button class="btn btn-outline-success text-white btn-lang btn-lang-en">EN</button>
+        <button class="btn btn-outline-success text-white btn-lang btn-lang-ru">RU</button>
+        <button class="btn btn-outline-success text-white btn-lang btn-lang-be">BE</button>
+      </div>
+
+      <form class="form-search form-inline">
+        <input class="form-control mr-2 location-search" type="text" placeholder="Search city" autofocus>
+        <button class="btn btn-success btn-search" type="button">Search</button>
+      </form>
+
+    </nav>
+
+    <div class="row">
+
+      <div class="weather col">
+
+        <p class="weather-location"></p>
+        <p class="date-location"></p>
+        <div class="weather-current">
+
+          <div class="row">
+
+            <div class="col">
+              <p class="current-icon"></p>
+              <p class="current-temperature temp"></p>
+            </div>
+
+            <div class="current-state col">
+              <p class="label-summary"></p>
+              <p>
+                <span class="label-feels-like"></span>
+                <span class="temp"></span>
+              </p>
+              <p>
+                <span class="label-wind-speed"></span>
+                <span class="current-wind-speed"></span>
+                <span class="label-units-wind-speed"></span>
+              </p>
+              <p>
+                <span class="label-humidity"></span>
+                <span class="current-humidity"></span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="weather-forecast">
+
+          <div class="row">
+
+            <div class="forecast-state col">
+              <p class="forecast-day"></p>
+              <div class="forecast-icon"></div>
+              <p class="forecast-temp temp"></p>
+            </div>
+
+            <div class="forecast-state col">
+              <p class="forecast-day"></p>
+              <div class="forecast-icon"></div>
+              <p class="forecast-temp temp"></p>
+            </div>
+
+            <div class="forecast-state col">
+              <p class="forecast-day"></p>
+              <div class="forecast-icon"></div>
+              <p class="forecast-temp temp"></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="map col">
+        <div class="yamap" id="yamap"></div>
+        <div class="map-coords">
+          <p class="mb-0">
+            <span class="label-latitude"></span>
+            <span class="lat"></span>
+          </p>
+          <p>
+            <span class="label-longitude"></span>
+            <span class="lng"></span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  </div>
+
+</body>
+
+</html>
