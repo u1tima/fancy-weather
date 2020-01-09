@@ -63,7 +63,6 @@ const config = {
     }),
 
     new CopyWebpackPlugin([
-      { from: './src/fonts', to: './fonts' },
       { from: './src/images', to: './images' },
     ]),
 
