@@ -10,6 +10,7 @@ export default class View {
 
     this.forecastDays = document.querySelectorAll('.forecast-day');
     this.forecastIcons = document.querySelectorAll('.forecast-icon');
+    this.temperatures = document.querySelectorAll('.temp');
 
     this.latitudeDegree = document.querySelector('.lat');
     this.longitudeDegree = document.querySelector('.lng');
