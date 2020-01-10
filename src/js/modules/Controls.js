@@ -7,7 +7,6 @@ export default class Controls {
     this.btnSearch = document.querySelector('.btn-search');
     this.inputSearch = document.querySelector('.location-search');
 
-    this.temperatures = document.querySelectorAll('.temp');
     this.btnCelsius = document.querySelector('.btn-celsius');
     this.btnFarenheit = document.querySelector('.btn-farenheit');
 
