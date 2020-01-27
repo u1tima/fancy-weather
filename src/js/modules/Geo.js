@@ -8,34 +8,29 @@ export default class Geo extends Api {
     this.key = '73ca5739eb61464e9fb40b5bb2d588a6';
   }
 
-  getLocationByCoords(latitude, longitude, language) {
+  getLocationByCoords(coords, language) {
     const { api, key } = this;
+    const { latitude, longitude } = coords;
     const url = `${api}?q=${latitude}%2C%20${longitude}&key=${key}&language=${language}&pretty=1`;
-    return (this.getLocationInfo(url));
+    return this.getLocationInfo(url);
   }
 
   getCoordsByLocation(searchLocation, language) {
     const { api, key } = this;
     const url = `${api}?q=${searchLocation}&key=${key}&language=${language}&pretty=1`;
-    return (this.getLocationInfo(url));
+    return this.getLocationInfo(url);
   }
 
   async getLocationInfo(url) {
     const data = await this.getJsonData(url);
-    const location = this.getLocationName(data);
-    const { country } = data.results[0].components;
-    const latitude = data.results[0].geometry.lat;
-    const longitude = data.results[0].geometry.lng;
-    const { lat, lng } = data.results[0].annotations.DMS;
-
-    return {
-      location,
-      country,
-      latitude,
-      longitude,
-      lat,
-      lng,
+    const geoData = {
+      country: data.results[0].components.country,
+      location: this.getLocationName(data),
+      latitudeDegree: data.results[0].annotations.DMS.lat,
+      longitudeDegree: data.results[0].annotations.DMS.lng,
     };
+
+    return geoData;
   }
 
   getLocationName(data) {

@@ -1,4 +1,4 @@
-export default class Translate {
+export default class Dictionary {
 
   constructor() {
 
@@ -9,12 +9,12 @@ export default class Translate {
     };
 
     this.wind = {
-      en: 'Wind',
-      ru: 'Ветер',
-      be: 'Вецер',
+      en: 'Wind:',
+      ru: 'Ветер:',
+      be: 'Вецер:',
     };
 
-    this.windUnits = {
+    this.windSpeedUnits = {
       en: 'm/s',
       ru: 'м/с',
       be: 'м/с',
@@ -23,19 +23,19 @@ export default class Translate {
     this.humidity = {
       en: 'Humidity:',
       ru: 'Влажность:',
-      be: 'Вiльготнасць',
+      be: 'Вiльготнасць:',
     };
 
     this.lat = {
       en: 'Latitude:',
       ru: 'Широта:',
-      be: 'Шырата',
+      be: 'Шырата:',
     };
 
     this.long = {
       en: 'Longitude:',
-      ru: 'Долгота',
-      be: 'Даўгата',
+      ru: 'Долгота:',
+      be: 'Даўгата:',
     };
 
     this.search = {

@@ -1,4 +1,4 @@
-export default class Controls {
+export default class Control {
 
   constructor() {
     this.btnChangeBackgroundImage = document.querySelector('.btn-refresh');
@@ -14,5 +14,6 @@ export default class Controls {
     this.btnLangEn = document.querySelector('.btn-lang-en');
     this.btnLangRu = document.querySelector('.btn-lang-ru');
     this.btnLangBe = document.querySelector('.btn-lang-be');
+
   }
 }
