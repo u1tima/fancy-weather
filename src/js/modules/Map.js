@@ -7,7 +7,8 @@ export default class Map {
     this.href = 'https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css';
   }
 
-  createMap(latitude, longitude) {
+  createMap(coords) {
+    const { latitude, longitude } = coords;
     const script = document.createElement('script');
     const link = document.createElement('link');
 
