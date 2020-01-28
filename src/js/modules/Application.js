@@ -15,7 +15,7 @@ export default class Application {
     this.weather = new Weather();
 
     this.language = localStorage.getItem('language') || 'en';
-    this.units = localStorage.getItem('units') || 'si';
+    this.units = localStorage.getItem('units') || 'C';
     this.coords = { latitude: '', longitude: '' };
 
     this.geoData = {};
@@ -23,16 +23,17 @@ export default class Application {
   }
 
   async init() {
-    this.view.renderLabelData(this.language);
 
     const { coords } = await this.geo.getCurrentPosition();
     this.coords = coords;
 
     this.geoData = await this.geo.getLocationByCoords(this.coords, this.language);
     this.weatherData = await this.weather.getWeatherByCoords(this.coords, this.language, this.units);
-    console.log(this.weatherData);
 
+    this.view.renderLabelData(this.language);
     this.view.renderGeoData(this.geoData);
-    this.view.renderWeatherData(this.weatherData);
+    this.view.renderWeatherData(this.weatherData, this.language, this.units);
+    this.background.loadRandomImage(this.geoData.location);
+    this.map.createMap(this.coords);
   }
 }
