@@ -9,13 +9,14 @@ export default class View {
 
     this.currentDate = document.querySelector('.date-location');
     this.currentTemperature = document.querySelector('.current-temperature');
+    this.feelsLikeTemperature = document.querySelector('.feel-like-temp');
     this.currentIcon = document.querySelector('.current-icon');
     this.currentWindSpeed = document.querySelector('.current-wind-speed');
     this.currentHumidity = document.querySelector('.current-humidity');
 
     this.forecastDays = document.querySelectorAll('.forecast-day');
     this.forecastIcons = document.querySelectorAll('.forecast-icon');
-    this.temperatures = document.querySelectorAll('.temp');
+    this.forecastTemperature = document.querySelectorAll('.forecast-temp');
 
     this.latitudeDegree = document.querySelector('.lat');
     this.longitudeDegree = document.querySelector('.lng');
@@ -62,26 +63,31 @@ export default class View {
     this.longitudeDegree.textContent = longitudeDegree;
   }
 
-  renderWeatherData(data) {
+  renderWeatherData(data, language, units) {
 
     const {
       summary,
       icon,
       temperature,
+      apparentTemperature,
       humidity,
       windSpeed,
       forecastData,
+      currentDay,
     } = data;
 
     this.labelSummary.textContent = summary;
     this.currentIcon.style.backgroundImage = `url(./images/weather/${icon}.png)`;
-    this.currentTemperature.textContent = Math.floor(temperature);
+    this.currentTemperature.innerHTML = `${Math.floor(temperature)} &deg${units}`;
+    this.feelsLikeTemperature.innerHTML = `${Math.floor(apparentTemperature)} &deg${units}`;
     this.currentWindSpeed.textContent = windSpeed.toFixed(1);
     this.currentHumidity.textContent = `${humidity * 100}%`;
 
     forecastData.forEach((item, index) => {
-      const { icon } = item;
+      const { icon, temperatureHigh } = item;
       this.forecastIcons[index].style.backgroundImage = `url(./images/weather/${icon}.png)`;
+      this.forecastTemperature[index].innerHTML = `${Math.floor(temperatureHigh)} &deg${units}`;
+      this.forecastDays[index].textContent = this.dictionary.daysOfWeek[language][currentDay + index + 2];
     });
   }
 
