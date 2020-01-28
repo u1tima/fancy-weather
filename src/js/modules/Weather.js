@@ -12,10 +12,13 @@ export default class Weather extends Api {
   async getWeatherByCoords(coords, language, units) {
     const { proxy, api, key } = this;
     const { latitude, longitude } = coords;
-    const url = `${proxy}${api}/${key}/${latitude},${longitude}?lang=${language}&units=${units}`;
+    const tempUnits = (units === 'C') ? 'si' : 'us';
+    const url = `${proxy}${api}/${key}/${latitude},${longitude}?lang=${language}&units=${tempUnits}`;
     const data = await this.getJsonData(url);
+    console.log(data);
 
     const weatherData = {
+      currentDay: new Date(data.currently.time).getDay(),
       summary: data.currently.summary,
       icon: data.currently.icon,
       temperature: data.currently.temperature,
